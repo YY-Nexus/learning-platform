@@ -190,7 +190,8 @@ export async function GET(request: NextRequest) {
 
 ### Error Handling
 - Use try-catch for async operations
-- Use `console.error` or `console.warn` for logging (ESLint allows these but warns on `console.log`)
+- For logging, prefer `console.error` for errors and `console.warn` for warnings
+- Avoid `console.log` (ESLint will warn) - use `console.error` or `console.warn` instead
 - Return appropriate HTTP status codes in API routes
 - Use Error Boundaries for React component errors
 
@@ -362,11 +363,11 @@ pnpm start    # Runs production server
 
 ### Pre-deployment Checklist
 - [ ] All tests pass
-- [ ] `pnpm lint` passes without errors (fix any warnings)
+- [ ] `pnpm lint` passes without errors (fix all warnings)
 - [ ] `pnpm type-check` passes
 - [ ] Environment variables are configured
 - [ ] Database migrations are applied
-- [ ] Replace debug `console.log` statements with proper error logging
+- [ ] No `console.log` statements remain (use `console.error`/`console.warn` for intentional logging)
 
 ### Deployment Platform
 - Primary: Vercel (optimized for Next.js)
