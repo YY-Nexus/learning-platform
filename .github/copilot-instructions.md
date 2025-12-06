@@ -56,7 +56,7 @@ This is a modern AI learning platform (AI学习平台) built with Next.js 15, Re
 
 ### Path Aliases
 
-Use `@/` for imports - it resolves to the project root:
+Use `@/` for imports - it resolves to the project root directory (where `app/`, `components/`, `lib/`, etc. are located):
 ```typescript
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -190,7 +190,7 @@ export async function GET(request: NextRequest) {
 
 ### Error Handling
 - Use try-catch for async operations
-- Log errors with `console.error` (console.log is disabled by ESLint)
+- Use `console.error` or `console.warn` for logging (ESLint allows these but warns on `console.log`)
 - Return appropriate HTTP status codes in API routes
 - Use Error Boundaries for React component errors
 
@@ -362,11 +362,11 @@ pnpm start    # Runs production server
 
 ### Pre-deployment Checklist
 - [ ] All tests pass
-- [ ] `pnpm lint` passes without errors
+- [ ] `pnpm lint` passes without errors (fix any warnings)
 - [ ] `pnpm type-check` passes
 - [ ] Environment variables are configured
 - [ ] Database migrations are applied
-- [ ] No console.log statements in production code
+- [ ] Replace debug `console.log` statements with proper error logging
 
 ### Deployment Platform
 - Primary: Vercel (optimized for Next.js)
