@@ -1,3 +1,5 @@
+"use client"
+
 import { ResponsiveLayout } from "@/components/responsive-layout"
 
 export default function ExamPage() {
